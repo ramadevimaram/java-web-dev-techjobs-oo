@@ -32,8 +32,7 @@ public class PositionType {
         if (this == o) return true;
         if (!(o instanceof PositionType)) return false;
         PositionType positionType = (PositionType) o;
-        return getId() == positionType.getId() &&
-                Objects.equals(getValue(), positionType.getValue());
+        return getId() == positionType.getId();
     }
 
     @Override
