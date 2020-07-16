@@ -16,8 +16,13 @@ public class Job {
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this();
         this.name = name;
         this.employer = employer;
         this.location = location;
@@ -25,14 +30,22 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public Job() {
-        id = nextId;
-        nextId++;
+
+    @Override
+    public String toString() {
+        if((this.name == null) &&(this.employer == null)&&(this.location == null) &&(this.positionType == null)&& (this.coreCompetency == null)){
+            return name = "OOPS! This job does not seem to exist";
+        }
+        else return "\n"+
+                "ID:" + id +"\n"+
+                "Name:" + name +"\n"+
+                "Employer:" + employer +"\n"+
+                "Location:" + location +"\n"+
+                "PositionType:" + positionType +"\n"+
+                "CoreCompetency:" + coreCompetency +
+                "\n";
     }
-
-
-
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+// TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
     @Override
